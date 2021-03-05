@@ -3,13 +3,13 @@ class Car:
     model = None
     color = None
     hp = None
-    __type = None
     accidents = None
-    mileage = None
+    __type = None
+    __mileage = None
 
     def car_desc(self):
         desc = f"Marka i model: {self.brand} {self.model}. Samochód jest w kolorze {self.color}. Typ pojazdu to {self.__type}. Posiada moc w wysokości {self.hp}km. " \
-               f"Przebieg pojazdu: {self.mileage} "
+               f"Przebieg pojazdu: {self.__mileage} "
         if self.accidents == 0 or self.accidents == None:
             print(desc + "Pojazd jest bezwypadkowy")
         else:
@@ -40,10 +40,10 @@ class Car:
     def set_mileage(self):
         print("Podaj nowy przebieg pojazdu: ")
         new_mileage = int(input())
-        if self.mileage == None or self.mileage < new_mileage:
-            self.mileage = new_mileage
+        if self.__mileage == None or self.__mileage < new_mileage:
+            self.__mileage = new_mileage
             print("Nowy przebieg zarejestrowany!")
-        elif self.mileage > new_mileage:
+        elif self.__mileage > new_mileage:
             print("Nie mozna ustawić mniejszego przebiegu niż był zarejestrowany!")
 
 
@@ -54,7 +54,7 @@ def main():
     VolvoS80.color = "Race Red"
     VolvoS80.hp = 136
     VolvoS80.accidents = 2
-    VolvoS80.mileage = 231041
+    VolvoS80._Car__mileage = 231041
     VolvoS80.set_type()
     VolvoS80.car_desc()
     VolvoS80.register_accident()
